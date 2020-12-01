@@ -2,7 +2,7 @@
 
 #import <Cordova/CDVAvailability.h>
 
-#import <Firebase/Firebase.h>
+#import "Firebase.h"
 @import FirebaseCrashlytics;
 
 @implementation FirebaseCrashlyticsPlugin
@@ -33,7 +33,7 @@
         result = [NSNumber numberWithInt:1];
     }
 
-    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsNSInteger:[result integerValue] ];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
